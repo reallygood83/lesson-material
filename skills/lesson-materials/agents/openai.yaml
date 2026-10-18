@@ -1,0 +1,4 @@
+interface:
+  display_name: "수업자료 만들기"
+  short_description: "학년·차시·성취기준에 맞춘 슬라이드와 활동지·퀴즈 PDF 만들기"
+  default_prompt: "5학년 수학 약분과 통분 1차시 수업자료 만들어 줘"

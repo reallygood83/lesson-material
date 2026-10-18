@@ -1,0 +1,39 @@
+name: 스킬 검사
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  skill-check:
+    name: 프런트매터·비밀값·슬라이드
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 프런트매터와 비밀값 검사
+        env:
+          REQUIRE_PYYAML: "1"
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pyyaml
+          python scripts/check_frontmatter.py
+          python scripts/check_no_secrets.py
+      - name: 샘플 슬라이드 생성
+        run: |
+          python -m pip install "python-pptx>=1.0.2"
+          python skills/lesson-materials/scripts/build_pptx.py \
+            "examples/5학년_수학_약분/slides.json" \
+            /tmp/sample.pptx
+          python - <<'PY'
+          from pptx import Presentation
+          deck = Presentation("/tmp/sample.pptx")
+          assert len(deck.slides) == 7, len(deck.slides)
+          notes = deck.slides[0].notes_slide.notes_text_frame.text
+          assert "약분" in notes
+          last = deck.slides[-1].notes_slide.notes_text_frame.text
+          assert last.strip()
+          print("pptx_ok", len(deck.slides))
+          PY
