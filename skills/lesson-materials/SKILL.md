@@ -104,7 +104,7 @@ description: "대한민국 초·중·고 교사가 학년, 과목, 단원의 수
 
 #### 활동지·퀴즈 PDF
 
-1. `<스킬폴더>/assets/a4.css`를 연결한 HTML+CSS로 A4 조판한다(`@page`, 여백 18mm, 한글 글꼴).
+1. `<스킬폴더>/assets/a4.css`를 연결한 HTML+CSS로 A4 조판한다. 스타일시트는 여백 18mm 안팎, 한글 글꼴, 쪽 하단 여백의 초안 문구를 넣는다. 본문의 `.draft`는 그 문구와 겹치지 않도록 숨겨 둔다.
 2. `<python> <스킬폴더>/scripts/build_pdf.py 입력.html 출력.pdf --render-dir 페이지PNG폴더`로 Chrome 헤드리스 PDF 변환, 쪽수·폰트 임베드 확인, 페이지 PNG 렌더링을 한다. `--render-dir`는 스크립트에서는 선택이지만 수업자료 완성 검증에는 사용한다.
 3. 스크립트는 macOS, 리눅스, 윈도우에서 Chrome·Chromium 실행 파일과 한글 글꼴 파일을 찾는다. 환경 변수 `LESSON_CHROME`, `LESSON_FONT_FILE`, `LESSON_FONT_FAMILY`로 덮어쓸 수 있다. `.ttf`/`.otf`를 찾으면 PDF에 임베드한다.
 4. 폰트 임베드 출력의 미임베드 항목을 해결하고, 모든 페이지 PNG를 이미지 보기 도구로 열어 글자 겹침·잘림·한글 깨짐을 눈으로 확인한다. 실행 성공만으로 시각 검증 완료라고 하지 않는다.

@@ -1,4 +1,13 @@
-@page { size: A4 portrait; margin: 18mm; }
+@page {
+  size: A4 portrait;
+  margin: 16mm 18mm 20mm 18mm;
+  @bottom-center {
+    content: "※ 초안입니다. 수업 전 반드시 검토하세요.";
+    font-family: "LessonHangul", "NanumGothic", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+    font-size: 9pt;
+    color: #444444;
+  }
+}
 * { box-sizing: border-box; }
 body {
   margin: 0;
@@ -14,8 +23,9 @@ h1, h2, h3 { break-after: avoid; }
 .question { border: 1px solid #777; padding: 4mm; margin: 4mm 0; break-inside: avoid; }
 .answer-space { min-height: 22mm; }
 .page-break { break-before: page; }
-.page { min-height: 250mm; display: flex; flex-direction: column; }
-.draft { margin-top: auto; padding-top: 5mm; font-size: 9pt; color: #444; break-inside: avoid; }
+.page { display: block; }
+/* 쪽 하단 여백에 같은 문장을 넣으므로 본문에서는 한 번 더 보이지 않게 한다. */
+.draft { display: none; }
 table { width: 100%; border-collapse: collapse; margin: 2mm 0 3mm; }
 td, th { border: 1px solid #777; padding: 2mm; text-align: center; }
 .filled { background: #d7eef3; }
