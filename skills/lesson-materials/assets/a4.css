@@ -1,0 +1,22 @@
+@page { size: A4 portrait; margin: 18mm; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: #171717;
+  font-family: "LessonHangul", "Noto Sans KR", "Noto Sans CJK KR", "NanumGothic", "Nanum Gothic", "Malgun Gothic", "Apple SD Gothic Neo", "WenQuanYi Micro Hei", sans-serif;
+  font-size: 11.5pt;
+  line-height: 1.55;
+}
+h1 { font-size: 18pt; margin: 0 0 3mm; }
+h2 { font-size: 16pt; margin: 4mm 0 2mm; }
+h1, h2, h3 { break-after: avoid; }
+.meta { margin: 0 0 3mm; }
+.question { border: 1px solid #777; padding: 4mm; margin: 4mm 0; break-inside: avoid; }
+.answer-space { min-height: 22mm; }
+.page-break { break-before: page; }
+.page { min-height: 250mm; display: flex; flex-direction: column; }
+.draft { margin-top: auto; padding-top: 5mm; font-size: 9pt; color: #444; break-inside: avoid; }
+table { width: 100%; border-collapse: collapse; margin: 2mm 0 3mm; }
+td, th { border: 1px solid #777; padding: 2mm; text-align: center; }
+.filled { background: #d7eef3; }
+.blank-line { display: inline-block; min-width: 28mm; border-bottom: 1px solid #333; }
