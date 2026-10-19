@@ -10,10 +10,13 @@ SKILL = SKILL_DIR / 'SKILL.md'
 REQUIRED_FILES = (
     'references/output-formats.md',
     'references/curriculum-check.md',
+    'references/pdf-layout.md',
     'scripts/build_pptx.py',
     'scripts/build_pdf.py',
     'scripts/platform_paths.py',
+    'scripts/check-print-layout.js',
     'assets/a4.css',
+    'assets/exam-print.css',
     'agents/openai.yaml',
     'custom-instructions.txt',
 )

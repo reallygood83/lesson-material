@@ -9,15 +9,15 @@ Aside에서 이 스킬을 쓰는 방법입니다. 설치 스크립트는 Aside �
 이 방법이 우선입니다.
 
 1. 이 저장소의 `skills/lesson-materials/SKILL.md`를 엽니다.
-2. `references/output-formats.md`와 `references/curriculum-check.md`도 엽니다.
-3. Aside에서 새 채팅을 열고, 내장 skill-creator에게 세 파일의 내용을 붙입니다.
+2. `references/` 전체와 `assets/`, `scripts/`도 함께 준비합니다. 정밀 조판에는 `references/pdf-layout.md`, `assets/exam-print.css`, `scripts/check-print-layout.js`가 필요합니다.
+3. Aside에서 새 채팅을 열고, 내장 skill-creator에게 `skills/lesson-materials/` 폴더 전체를 제공하거나 이 저장소 링크로 설치를 요청합니다.
 4. 이렇게 요청합니다.
 
 ```text
 이 내용으로 lesson-materials 라는 커스텀 스킬을 만들어 줘.
 SKILL.md의 프런트매터 name은 큰따옴표 문자열 name: "lesson-materials" 로 유지해 줘.
-references/output-formats.md 와 references/curriculum-check.md 도 스킬 폴더에 함께 넣어 줘.
-scripts, assets, agents/openai.yaml, custom-instructions.txt 가 있으면 같은 폴더에 함께 넣어 줘.
+references 전체와 scripts, assets, agents/openai.yaml, custom-instructions.txt 도 같은 폴더에 함께 넣어 줘.
+특히 references/pdf-layout.md, assets/exam-print.css, scripts/check-print-layout.js 를 빠뜨리지 말아 줘.
 ```
 
 5. 설정 > Skills에서 `lesson-materials`가 보이는지 확인합니다.
@@ -47,13 +47,14 @@ scripts, assets, agents/openai.yaml, custom-instructions.txt 가 있으면 같�
 2. Project의 AGENTS.md 지침에 `skills/lesson-materials/custom-instructions.txt` 내용 전체를 붙여 넣습니다.
 3. 작업을 시작할 때 그 Project를 선택합니다.
 
-이 경로는 스킬의 스크립트 파일을 자동으로 따라가지 않습니다. Aside는 브라우저로 구글 슬라이드와 구글 문서를 직접 만듭니다.
+이 경로는 스킬의 스크립트·CSS 자원을 자동으로 가져오지 않습니다. 정밀 조판 자원도 쓰려면 1번 또는 2번으로 스킬 폴더 전체를 설치합니다. Aside는 구글 슬라이드를 직접 만들고, 인쇄물은 HTML 정밀 조판을 브라우저에서 PDF로 출력하거나 필요한 경우 구글 문서로 만듭니다.
 
 ## 확인하면 좋은 것
 
 - 프런트매터 첫 키가 `name: "lesson-materials"`인지. Aside 검증기는 이름을 큰따옴표 문자열로 요구합니다.
 - 만든 슬라이드 발표자 노트에 구어체 대본이 있는지.
 - 활동지·퀴즈가 A4 PDF인지, 퀴즈 정답이 문제지와 다른 파일인지.
+- 문제지의 수능형 조판과 풀이 공간이 학년에 맞는지, 모든 PDF 쪽을 이미지로 검수했는지.
 - 공유 설정을 에이전트가 바꾸지 않았는지.
 - 마지막에 「※ 초안입니다. 수업 전 반드시 검토하세요.」가 있는지.
 

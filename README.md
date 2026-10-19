@@ -19,6 +19,15 @@
 
 파일 공유 설정은 바꾸지 않습니다. 로그인이 필요하면 교사가 직접 로그인합니다.
 
+## 인쇄물 조판
+
+- **문제지:** 수능형 제목 체계, 명조 본문, 큰 문항 번호, 중앙 구분선과 2단 구성. 계산·서술형에는 풀이 공간을 더 줍니다. 저학년·긴 지문·큰 그림은 1단이나 별도 쪽으로 조정합니다.
+- **활동지:** 그림·계산·식·검산·서술 칸을 구분하고 학생용 다음에 교사용을 둡니다.
+- **정답·해설:** 정답 요약, 풀이, 예상 오개념, 되묻기 발문을 구분합니다. 가독성이 우선이며 쪽수를 줄이려고 글씨나 답란을 줄이지 않습니다.
+- **검수:** `scripts/check-print-layout.js`로 쪽 넘침·하단 겹침을 검사하고, PDF의 모든 쪽을 이미지로 확인합니다. 자동 검사는 시각 검수를 대신하지 않습니다.
+
+재사용 스타일은 `skills/lesson-materials/assets/exam-print.css`, 상세 절차는 [인쇄물 조판과 검수](skills/lesson-materials/references/pdf-layout.md)에 있습니다. 수능의 조판 방식만 참고하며 기출 내용·기관 로고·공식 시험 명칭·배점은 복제하지 않습니다. 한 문서용 웹폰트 서브셋은 범용 글꼴로 묶어 배포하지 않습니다.
+
 ## 사용 예
 
 도구에 이렇게 말합니다.
@@ -71,7 +80,7 @@ Windows에서 bash가 없으면 WSL이나 Git Bash로 같은 명령을 실행합
 
 ### Aside
 
-1. Aside 채팅의 내장 skill-creator에게 `SKILL.md`와 `references/` 두 파일을 주고 `lesson-materials` 스킬을 만들게 합니다. 스크립트와 `assets/`도 함께 넣으면 PDF·pptx 경로까지 스킬 안에 남습니다.
+1. Aside 채팅의 내장 skill-creator에게 `skills/lesson-materials/` 폴더 전체로 스킬을 만들게 합니다. `references/`, `assets/`, `scripts/`를 함께 넣어야 정밀 조판 CSS와 쪽 넘침 검사도 쓸 수 있습니다.
 2. 사용자 스킬 위치는 `~/.aside/u/<계정>/skills/user/lesson-materials/` 입니다. `<계정>`은 사람마다 다릅니다. 넣은 뒤 설정 > Skills에 보이는지 확인합니다.
 3. Project의 AGENTS.md에 `custom-instructions.txt`를 붙여 그 Project를 선택한 채팅에서만 쓸 수 있습니다.
 
@@ -124,9 +133,10 @@ python skills/lesson-materials/scripts/platform_paths.py
 skills/lesson-materials/          스킬 본문. 설치하면 이 폴더가 통째로 복사됩니다.
   SKILL.md                        규칙과 도구별 경로
   custom-instructions.txt         ChatGPT·Gems·Aside Project에 붙여 넣는 지침
-  references/                     성취기준 확인, 결과물 형식
-  scripts/                        pptx·PDF 생성, Chrome·글꼴 찾기
-  assets/a4.css                   A4 조판
+  references/                     성취기준 확인, 결과물 형식, 인쇄 조판·검수
+  scripts/                        pptx·PDF 생성, Chrome·글꼴 찾기, 쪽 넘침 검사
+  assets/exam-print.css            수능형 문제지·활동지·해설 정밀 조판
+  assets/a4.css                   단순 자동 흐름 문서의 대체 스타일
   agents/openai.yaml              Codex에 보이는 이름과 기본 문장
 examples/5학년_수학_약분/         샘플 원본과 만들어진 pptx·PDF
 docs/                             Codex에서 스킬을 만든 과정, Aside 등록
